@@ -4,13 +4,13 @@ Description: >
 Parameters:
 
     EnvironmentName:
-        Description: An environment name that will be prefixed to resource names
+        Description: An environment name 
         Type: String
 Resources:
   LBSecGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Allow http to our load balancer
+      GroupDescription: Allow http to load balancer
       VpcId:
         Fn::ImportValue:
           !Sub "${EnvironmentName}-VPCID"
@@ -27,7 +27,7 @@ Resources:
   WebServerSecGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Allow http to our hosts and SSH from local only
+      GroupDescription: Allow http to hosts and SSH from local only
       VpcId:
         Fn::ImportValue:
           !Sub "${EnvironmentName}-VPCID"
@@ -55,7 +55,7 @@ Resources:
           apt-get install apache2 -y
           systemctl start apache2.service   
           cd /var/www/html
-          echo "Udacity Demo Web Server Up and Running!" > index.html       
+          echo "it works! Udagram, Udacity" > index.html       
       ImageId: ami-0729e439b6769d6ab
       SecurityGroups:
       - Ref: WebServerSecGroup
