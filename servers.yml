@@ -7,11 +7,6 @@ Parameters:
         Description: An environment name that will be prefixed to resource names
         Type: String
 Resources:
-  ProfileWithRolesForOurApp:
-    Type: AWS::IAM::InstanceProfile
-    Properties: 
-      Roles:
-        - UdacityS3ReadOnlyEC2
   LBSecGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
